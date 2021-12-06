@@ -1,0 +1,90 @@
+% Style for La-TeX version of LJM
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%        HEADINGS             %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headsep=20pt
+\headheight=20pt
+\footskip=20pt
+\renewcommand{\@evenhead}{%
+\thepage \hfil \strut \@crauthor \hfil}
+\renewcommand{\@oddhead}{%
+\hfil \strut \@title \hfil \thepage}
+\renewcommand{\@oddfoot}{}
+\renewcommand{\@evenfoot}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\topmargin=0pt
+\textwidth=13truecm
+\textheight=21.5truecm
+\hoffset=-1truecm
+\renewcommand{\baselinestretch}{1.1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\S{{\mathsurround=0pt $\mathchar632$}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\author#1{\gdef\@author{#1}}
+\gdef\@author{}
+
+\def\tauthor#1{\gdef\@tauthor{#1}}
+\gdef\@tauthor{}
+
+\def\crauthor#1{\gdef\@crauthor{\uppercase{#1}}}
+\gdef\@tauthor{}
+
+\def\tit#1{\gdef\@tit{\uppercase{#1}}}
+\gdef\@tit{}
+
+\def\shorttit#1{\gdef\@shorttit{\uppercase{#1}}}
+\gdef\@shorttit{}
+
+\def\editor#1{\gdef\@editor{#1}}
+\gdef\@editor{}
+
+\def\vol#1{\gdef\@volume{#1}}
+\gdef\@volume{}
+
+\def\yr#1{\gdef\@yr{#1}}
+\gdef\@yr{}
+
+\def\pgs#1{\gdef\@pgs{#1}}
+\gdef\@pgs{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\maketit{\thispagestyle{plain}
+\title{\@shorttit}
+\date{}
+\begin{center}
+{\sl \@author }\\[5pt]
+{\bf \@tit}\\[5pt]
+\end{center}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\long\def\notes#1#2{
+\begin{table}[b]
+\vspace{#1pt}
+\rule{3truecm}{0.3pt}
+\vskip4pt
+\par\noindent
+#2
+\end{table}}
+
+\def\thank#1{\parbox{\hsize}{
+\par \tolerance=200 \parindent=10pt \small #1.}
+\vskip1pt \par\noindent}
+
+\def\subclass#1{\parbox{\hsize}{
+\tolerance=200 \parindent=10pt
+{\small\it 2010 Mathematical Subject Classification}.
+\small #1.}
+\vskip1pt \par\noindent}
+
+\def\keywords#1{\parbox{\hsize}{
+\tolerance=200 \parindent=10pt
+{\it Key words and phrases}. \small #1.} \vskip1pt}
+
+\long\def\abstract#1{
+\vskip1truecm
+\hbox to \hsize{\hss {\vbox{\hsize=12truecm
+\small {\sc \small Abstract}. #1}}\hss} \vskip1truecm\par}
+
+\def\address#1{\bigskip\par\noindent{\sc \small #1}}
+\def\email#1{\smallskip\par\noindent \small {\em E-mail address:} #1}
+\def\Received#1{\bigskip \par \normalsize Received #1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

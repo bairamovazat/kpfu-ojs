@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE version SYSTEM "../../../lib/pkp/dtd/pluginVersion.dtd">
+
+<!--
+  * plugins/generic/reviewersRecommender/version.xml
+  *
+  * Copyright (c) 2017-2019 Kazan Federal University
+  *
+  * Plugin version information.
+  -->
+<version>
+	<application>reviewersRecommender</application>
+	<type>plugins.generic</type>
+	<release>1.0.2</release>
+	<date>2017-12-11</date>
+	<lazy-load>1</lazy-load>
+	<class>ReviewersRecommenderPlugin</class>
+</version>

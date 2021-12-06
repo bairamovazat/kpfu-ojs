@@ -1,0 +1,43 @@
+html{
+	font-size: 16px;
+}
+#header{
+	background-color:#6dcfff;
+}
+#header h1{
+	background-color:#6dcfff;
+}
+
+.issueDescription, #issueDescription p{
+	text-align: justify;
+}
+
+
+.leftstr, .rightstr {
+	float: left; /* Обтекание справа */ 
+	width: 50%; /* Ширина текстового блока */ 
+}
+.rightstr {
+	text-align: right; /* Выравнивание по правому краю */ 
+}
+
+#content {
+	font-size: 16px;
+}
+#rightSidebar {
+	font-size: 0.8em;
+}
+
+#journalDescription {
+    text-align: justify;
+}
+
+#navbar a {
+    font-size: 0.9em;
+}
+
+#breadcrumb {
+    text-align: left;
+    font-size: 1em;
+    padding-bottom: 0.3em;
+}
