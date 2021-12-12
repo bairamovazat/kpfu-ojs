@@ -1,0 +1,13 @@
+--- plugins/importexport/native/native.dtd	2016-08-03 20:41:44.000000000 -0700
++++ plugins/importexport/native/native.dtd	2018-01-16 13:40:33.366642111 -0800
+@@ -1,8 +1,8 @@
+ <!--
+   * plugins/importexport/native/native.dtd
+   *
+-  * Copyright (c) 2013-2016 Simon Fraser University Library
+-  * Copyright (c) 2003-2016 John Willinsky
++  * Copyright (c) 2013-2018 Simon Fraser University
++  * Copyright (c) 2003-2018 John Willinsky
+   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+   *
+   * DTD for native XML import/export.

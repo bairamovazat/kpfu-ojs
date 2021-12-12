@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/.../classes/DOIExportPlugin.inc.php
  *
- * Copyright (c) 2013-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2013-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DOIExportPlugin
@@ -239,7 +239,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 					);
 					break;
 				} else { // Register selected objects.
-					assert($request->getUserVar('register'));
+					assert($request->getUserVar('register') != false);
 					$result = $this->registerObjects($request, $exportSpec, $journal);
 
 					// Provide the user with some visual feedback that

@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/crossref/CrossRefExportPlugin.inc.php
  *
- * Copyright (c) 2013-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2013-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CrossRefExportPlugin
@@ -207,18 +207,22 @@ class CrossRefExportPlugin extends DOIExportPlugin {
 			if ($filter == CROSSREF_STATUS_NOT_DEPOSITED) {
 				$allArticles = $publishedArticleDao->getBySetting($this->getDepositStatusSettingName(), null, $journal->getId());
 				$errors = array();
-				$articles = array_filter($allArticles, function($elem) use($errors){
-					return $this->canBeExported($elem, $errors);
-				});
+				foreach ($allArticles as $article) {
+					if(!is_null($article->getPubId('doi'))) {
+						$articles[] = $article;
+					}
+				}
 			} else {
 				$articles = $publishedArticleDao->getBySetting($this->getDepositStatusSettingName(), $filter, $journal->getId());
 			}
 		} else {
 			$allArticles = $this->getAllPublishedArticles($journal);
 			$errors = array();
-			$articles = array_filter($allArticles, function($elem) use($errors){
-				return $this->canBeExported($elem, $errors);
-			});
+			foreach ($allArticles as $article) {
+				if(!is_null($article->getPubId('doi'))) {
+					$articles[] = $article;
+				}
+			}
 		}
 
 		// Retrieve article data.
