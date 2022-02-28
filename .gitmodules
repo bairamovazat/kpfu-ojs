@@ -1,6 +1,6 @@
 [submodule "lib/pkp"]
 	path = lib/pkp
-	url = git://github.com/bairamovazat/pkp-lib
+	url = https://github.com/bairamovazat/pkp-lib.git
 [submodule "plugins/importexport/duracloud/lib/DuraCloud-PHP"]
 	path = plugins/importexport/duracloud/lib/DuraCloud-PHP
 	url = git://github.com/asmecher/DuraCloud-PHP
