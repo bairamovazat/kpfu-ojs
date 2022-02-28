@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * plugins/generic/reviewersRecommender/locale/en_US/locale.xml
+  *
+  * Copyright (c) 2017-2019 Kazan Federal University
+  *
+  * ReviewersRecommender plugin localization strings
+  -->
+ 
+<locale name="en_US" full_name="U.S. English">
+
+	<!-- reviewersRecommender -->
+	<message key="plugins.generic.revrec.displayName">Reviewers Recommender Plugin</message>
+	<message key="plugins.generic.revrec.description"><![CDATA[Plugin reviewer recommendations based on its competence and the number of peer-reviewed papers. The research area of the article is determined taking into account the interests of the reviewer.]]></message>
+	<message key="plugins.generic.revrec.score">Recommendation</message>
+	<message key="plugins.generic.revrec.mathscinet">MathSciNet</message>
+	<message key="plugins.generic.revrec.zbmath">ZBMath</message>
+	<message key="plugins.generic.revrec.index">index</message>
+
+</locale>

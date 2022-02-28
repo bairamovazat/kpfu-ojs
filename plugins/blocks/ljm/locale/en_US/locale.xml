@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * plugins/blocks/ljm/locale/en_US/locale.xml
+  *
+  * Copyright (c) 2016 Sam K.
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+ 
+<locale name="en_US" full_name="U.S. English">
+	<message key="plugins.block.ljm.displayName">"LJM" Block</message>
+	<message key="plugins.block.ljm.description">This plugin provides sidebar "LJM" elements.</message>
+	<message key="plugins.block.ljm.undertitle">Related subjects: Algebra - Analysis - Geometry &amp; Topology - Mathematics - &lt;br/&gt;Probability Theory and Stochastic Processes</message>
+	<message key="plugins.block.ljm.kfu">Kazan Federal University</message>
+	<message key="plugins.block.ljm.kfu-short">Kazan Federal University</message>
+	<message key="plugins.block.ljm.archiveinfo">For Archive Info</message>
+</locale>

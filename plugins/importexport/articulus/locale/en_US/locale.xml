@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * plugins/importexport/articulus/locale/en_US/locale.xml
+  *
+  * Copyright (c) 2013-2016 Simon Fraser University Library
+  * Copyright (c) 2003-2016 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings
+  -->
+
+<locale name="en_US" full_name="U.S. English">
+	<message key="plugins.importexport.articulus.displayName">Plugin for export issues in Elibrary format</message>
+	<message key="plugins.importexport.articulus.description">This plugin is designed to generate an XML file with metadata of all articles in the format of the Russian science citation index.</message>
+
+	<message key="plugins.importexport.articulus.cliUsage"><![CDATA[Usage: {$scriptName} {$pluginName} [command] ...
+Commands:
+	import [xmlFileName] [journal_path] [user_name] ...
+	export [xmlFileName] [journal_path] articles [articleId1] [articleId2] ...
+	export [xmlFileName] [journal_path] article [articleId]
+	export [xmlFileName] [journal_path] issues [issueId1] [issueId2] ...
+	export [xmlFileName] [journal_path] issue [issueId]
+
+Additional parameters are required for importing data as follows, depending
+on the root node of the XML document.
+
+If the root node is <article> or <articles>, additional parameters are required.
+The following formats are accepted:
+
+{$scriptName} {$pluginName} import [xmlFileName] [journal_path] [user_name]
+	issue_id [issueId] section_id [sectionId]
+
+{$scriptName} {$pluginName} import [xmlFileName] [journal_path] [user_name]
+	issue_id [issueId] section_name [name]
+
+{$scriptName} {$pluginName} import [xmlFileName] [journal_path]
+	issue_id [issueId] section_abbrev [abbrev]
+]]></message>
+	<message key="plugins.importexport.articulus.export">Export Data</message>
+	<message key="plugins.importexport.articulus.export.issues">Export Issues</message>
+	<message key="plugins.importexport.articulus.export.sections">Export Sections</message>
+	<message key="plugins.importexport.articulus.export.articles">Export Articles</message>
+
+	<message key="plugins.importexport.articulus.selectIssue">Select Issue</message>
+	<message key="plugins.importexport.articulus.selectArticle">Select Article</message>
+
+	<message key="plugins.importexport.articulus.cliError">ERROR:</message>
+	<message key="plugins.importexport.articulus.error.uploadFailed">The upload failed; please ensure that uploads are allowed on your server and that the file is not too big for your PHP and web server configuration.</message>
+	<message key="plugins.importexport.articulus.error.unknownUser">The specified user, "{$userName}", does not exist.</message>
+	<message key="plugins.importexport.articulus.error.unknownJournal">The specified journal path, "{$journalPath}", does not exist.</message>
+	<message key="plugins.importexport.articulus.export.error.couldNotWrite">Could not write to the file "{$fileName}".</message>
+	<message key="plugins.importexport.articulus.export.error.sectionNotFound">No section matched the specifier "{$sectionIdentifier}".</message>
+	<message key="plugins.importexport.articulus.export.error.issueNotFound">No issue matched the specified issue ID "{$issueId}".</message>
+	<message key="plugins.importexport.articulus.export.error.articleNotFound">No article matched the specified article ID "{$articleId}".</message>
+	<message key="plugins.importexport.articulus.import.error.unsupportedRoot">This plugin does not support the supplied root node "{$rootName}". Please ensure that the file is correctly formed and try again.</message>
+
+</locale>

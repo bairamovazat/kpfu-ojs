@@ -1,0 +1,315 @@
+/**
+ * plugins/themes/kfuTheme/kfuTheme.css
+ *
+ * Copyright (c) 2016 Kazan Federal University
+ * Copyright (c) 2016 Shamil K.
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * Kfu theme stylesheet.
+ *
+ */
+
+body {
+	background-color: #fff;
+	font-family: 'PT Sans', sans-serif;
+}
+
+a {
+	text-decoration: none;
+    font-size: 1em;
+}
+
+a:link {
+	color: #00599B;
+}
+
+a:active {
+	color: #00599B;
+}
+
+a:visited {
+	color: #00599B;
+}
+
+a:hover {
+	background: none;
+    text-decoration: underline;
+}
+
+p {
+	color: #222;
+    font-size: 1em;
+	text-align: justify;
+}
+
+label.error {
+	color: #f60;
+}
+
+input.defaultButton {
+    color: #fff;
+    background: #023a80;
+}
+
+input.button {
+	font-size: 0.83em;
+}
+
+select.selectMenu{
+	max-width:298px;
+}
+
+#container {
+	background-color: #fff;
+	font-size: 1em;
+	min-width:1080px !important;
+}
+
+#header {
+	min-height: 100px;
+    background: #012a77 url('kfu_logo.png') no-repeat 48px 20px;
+}
+
+html[lang="en-US"] #header {
+    background: #012a77 url('kfu_logo_eng.png') no-repeat 48px 20px;
+}
+
+#headerTitle {
+	text-align: center;
+}
+
+#header h1 {
+	font-family: 'PT Sans', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 2.7em;
+	line-height: 2;
+    padding: 0 0 0 483px;
+	color:  #fff;
+	min-height:100px;
+	line-height: 100px;
+}
+
+html[lang="en-US"] #header h1 {
+    padding: 0 0 0 350px;
+}
+
+#footer {
+	background-color: #069;
+	color:  #fff;
+}
+
+#footerContent {
+	color:  #fff;
+}
+
+/* start IE<6 */
+* HTML #main {
+    margin-top: 0;
+	padding-top: 0;
+}
+
+* HTML #navbar {
+    position: relative;
+    top: 0;
+    padding: 0;
+}
+
+* HTML #breadcrumb {
+    position: relative;
+    top: 0;
+    padding: 0;
+}
+
+* HTML #body{
+    background:url('sep.png') repeat-x;
+}
+/* end IE<6*/
+
+#header + #body #main{
+    margin-top: 96px;
+	background-color: #fff;
+}
+
+#main h2 {
+	font-family: 'PT Sans', sans-serif;
+	text-transform: uppercase;
+	font-size:1.250em;
+}
+
+#main h3 {
+	font-family: 'PT Sans', sans-serif;
+	text-transform: uppercase;
+}
+
+#navbar {
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    min-width: 1080px;
+    left: 0;
+    padding: 0;
+    border-bottom: none;
+    background-color: #023a80;
+}
+
+#navbar a{
+	display: inline-block;
+    line-height: 48px;
+    /* border-bottom: 2px solid transparent; */
+    font-size: 0.875em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 0 10px;
+}
+
+#navbar a:hover{
+    color: #023a80;
+    background-color: #fff;
+    padding: 0 10px;
+    text-decoration: none;
+}
+
+ul.menu {
+    margin-left: 10%;
+}
+
+ul.menu li {
+    padding: 0;
+    margin: 0;
+    margin-left: -10px;
+    display: inline;
+}
+
+#header + #body #breadcrumb {
+	position: absolute;
+    top: 148px;
+	text-align: left;
+	background-color: #cbd4da;
+	padding: 0;
+    width: 100%;
+    min-width: 1080px;
+    left: 0;
+    border-bottom: none;
+	color: #3096F8;
+    text-indent: -5px;
+    font-size: 1em;
+}
+
+#breadcrumb a:first-child{
+	margin-left:10%;
+}
+
+#breadcrumb a{
+    line-height: 48px;
+	color: #3096F8;
+	padding: 0 5px;
+    font-size: 1em;
+    text-align: left;
+}
+
+#breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+#breadcrumb a.current {
+    font-weight: normal; 
+}
+
+#content {
+	border-top: none;
+	font-size:1em;
+}
+
+#main  + h2{display:none;}
+
+#content h1 {
+	font-family: 'PT Sans', sans-serif;
+	text-transform: uppercase;
+	font-size:1.375em;
+}
+
+#content h2 {
+	font-family: 'PT Sans', sans-serif;
+	text-transform: uppercase;
+	font-size:1.25em;
+}
+
+#content h3 {
+	font-family: 'PT Sans', sans-serif;
+	text-transform: uppercase;
+	padding-top: 0.75em;
+	font-size: 1.125em;
+}
+
+#content h4 {
+	font-family: 'PT Sans', sans-serif;
+	text-transform: uppercase;
+	font-size: 1.063em;
+}
+
+#content h5 {
+	text-transform: uppercase;
+}
+
+.homepageImage img {
+	margin: 1em 1em 0 0;
+}
+
+span.highlight {
+	border-bottom: 1px dotted #069;
+}
+
+table.listing tr.highlight {
+	background: #fcff64;
+}
+
+table.listing tr.fastTracked {
+	background-color: #EEEEFF;
+}
+
+table.listing td.headseparator {
+	border-top: 1px dotted #069;
+}
+
+table.listing td.endseparator {
+	border-top: 1px dotted #069;
+}
+
+span.formError {
+	color: #f60;
+}
+
+ul.formErrorList {
+	color: #f60;
+}
+
+div.separator {
+	border-bottom: 1px dotted #069;
+}
+
+#rightSidebar ul, #leftSidebar ul {
+	margin-left: 0px;
+	padding-left: 0px;
+}
+
+#rightSidebar li, #leftSidebar li {
+	list-style-type: none;
+}
+
+#rightSidebar, #leftSidebar {
+	margin-top: 101px;
+	border-bottom: none;
+	font-size: 0.85em;
+}
+
+pre {
+	font-size: 1em;
+}
+
+#descriptionTitleImg{
+	display:none;
+}

@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE schema SYSTEM "../../dtd/xmlSchema.dtd">
+
+<!--
+  * schema.xml
+  *
+  * Copyright (c) 2017-2019 Kazan Federal University
+  * Copyright (c) 2017-2019 Shamil K.
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Controlled vocabulary schema in XML.
+  -->
+
+<schema version="0.2">
+	<!--
+	  *
+	  * TABLE user_interests
+	  *
+	  -->
+	<table name="user_interests">
+		<field name="user_id" type="I8">
+			<NOTNULL />
+		</field>
+		<field name="controlled_vocab_entry_id" type="I8">
+			<NOTNULL />
+		</field>
+		<field name="tf" type="F">
+			<NOTNULL />
+			<DEFAULT VALUE="0"/>
+		</field>
+		<descr>Reviewer Interests Associative Table With TF Field</descr>
+		<index name="u_e_pkey">
+			<col>user_id</col>
+			<col>controlled_vocab_entry_id</col>
+			<UNIQUE />
+		</index>
+	</table>
+	
+	<!--
+	  *
+	  * TABLE revrec_msc_descriptions
+	  *
+	  -->
+	<table name="revrec_msc_descriptions">
+		<field name="msc_id" type="I8">
+			<KEY/>
+			<AUTOINCREMENT/>
+		</field>
+		<field name="msc_name" type="C2" size="5">
+			<NOTNULL />
+		</field>
+		<field name="msc_descr" type="C2" size="255">
+			<NOTNULL />
+		</field>
+		<descr>MSC 2010 Classification description table</descr>
+		<index name="u_e_pkey">
+			<col>msc_id</col>
+			<UNIQUE />
+		</index>
+	</table>
+	<sql>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('00-XX', 'General')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('00Axx', 'General and miscellaneous specific topics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('00Bxx', 'Conference proceedings and collections of papers')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('01-XX', 'History and biography')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('01Axx', 'History of mathematics and mathematicians')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('03-XX', 'Mathematical logic and foundations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('03Axx', 'Philosophical aspects of logic and foundations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('03Bxx', 'General logic')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('03Cxx', 'Model theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('03Dxx', 'Computability and recursion theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('03Exx', 'Set theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('03Fxx', 'Proof theory and constructive mathematics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('03Gxx', 'Algebraic logic')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('03Hxx', 'Nonstandard models')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('05-XX', 'Combinatorics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('05Axx', 'Enumerative combinatorics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('05Bxx', 'Designs and configurations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('05Cxx', 'Graph theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('05Dxx', 'Extremal combinatorics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('05Exx', 'Algebraic combinatorics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('06-XX', 'Order, lattices, ordered algebraic structures')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('06Axx', 'Ordered sets')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('06Bxx', 'Lattices')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('06Cxx', 'Modular lattices, complemented lattices')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('06Dxx', 'Distributive lattices')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('06Exx', 'Boolean algebras (Boolean rings)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('06Fxx', 'Ordered structures')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('08-XX', 'General algebraic systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('08Axx', 'Algebraic structures')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('08Bxx', 'Varieties')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('08Cxx', 'Other classes of algebras')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11-XX', 'Number theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11Axx', 'Elementary number theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11Bxx', 'Sequences and sets')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11Cxx', 'Polynomials and matrices')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11Dxx', 'Diophantine equations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11Exx', 'Forms and linear algebraic groups')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11Fxx', 'Discontinuous groups and automorphic forms')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11Gxx', 'Arithmetic algebraic geometry (Diophantine geometry)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11Hxx', 'Geometry of numbers')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11Jxx', 'Diophantine approximation, transcendental number theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11Kxx', 'Probabilistic theory: distribution modulo $1$; metric theory of algorithms')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11Lxx', 'Exponential sums and character sums')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11Mxx', 'Zeta and $L$-functions: analytic theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11Nxx', 'Multiplicative number theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11Pxx', 'Additive number theory; partitions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11Rxx', 'Algebraic number theory: global fields')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11Sxx', 'Algebraic number theory: local and $p$-adic fields')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11Txx', 'Finite fields and commutative rings (number-theoretic aspects)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11Uxx', 'Connections with logic')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11Yxx', 'Computational number theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('11Zxx', 'Miscellaneous applications of number theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('12-XX', 'Field theory and polynomials')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('12Dxx', 'Real and complex fields')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('12Exx', 'General field theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('12Fxx', 'Field extensions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('12Gxx', 'Homological methods (field theory)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('12Hxx', 'Differential and difference algebra')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('12Jxx', 'Topological fields')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('12Kxx', 'Generalizations of fields')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('12Lxx', 'Connections with logic')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('12Yxx', 'Computational aspects of field theory and polynomials')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('13-XX', 'Commutative algebra')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('13Axx', 'General commutative ring theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('13Bxx', 'Ring extensions and related topics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('13Cxx', 'Theory of modules and ideals')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('13Dxx', 'Homological methods')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('13Exx', 'Chain conditions, finiteness conditions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('13Fxx', 'Arithmetic rings and other special rings')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('13Gxx', 'Integral domains')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('13Hxx', 'Local rings and semilocal rings')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('13Jxx', 'Topological rings and modules')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('13Lxx', 'Applications of logic to commutative algebra')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('13Mxx', 'Finite commutative rings')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('13Nxx', 'Differential algebra')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('13Pxx', 'Computational aspects and applications')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('14-XX', 'Algebraic geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('14Axx', 'Foundations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('14Bxx', 'Local theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('14Cxx', 'Cycles and subschemes')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('14Dxx', 'Families, fibrations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('14Exx', 'Birational geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('14Fxx', '(Co)homology theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('14Gxx', 'Arithmetic problems. Diophantine geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('14Hxx', 'Curves')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('14Jxx', 'Surfaces and higher-dimensional varieties')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('14Kxx', 'Abelian varieties and schemes')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('14Lxx', 'Algebraic groups')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('14Mxx', 'Special varieties')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('14Nxx', 'Projective and enumerative geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('14Pxx', 'Real algebraic and real analytic geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('14Qxx', 'Computational aspects in algebraic geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('14Rxx', 'Affine geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('14Txx', 'Tropical geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('15-XX', 'Linear and multilinear algebra; matrix theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('15Axx', 'Basic linear algebra')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('15Bxx', 'Special matrices')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('16-XX', 'Associative rings and algebras')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('16Bxx', 'General and miscellaneous')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('16Dxx', 'Modules, bimodules and ideals')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('16Exx', 'Homological methods')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('16Gxx', 'Representation theory of rings and algebras')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('16Hxx', 'Algebras and orders')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('16Kxx', 'Division rings and semisimple Artin rings')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('16Lxx', 'Local rings and generalizations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('16Nxx', 'Radicals and radical properties of rings')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('16Pxx', 'Chain conditions, growth conditions, and other forms of finiteness')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('16Rxx', 'Rings with polynomial identity')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('16Sxx', 'Rings and algebras arising under various constructions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('16Txx', 'Hopf algebras, quantum groups and related topics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('16Uxx', 'Conditions on elements')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('16Wxx', 'Rings and algebras with additional structure')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('16Yxx', 'Generalizations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('16Zxx', 'Computational aspects of associative rings')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('17-XX', 'Nonassociative rings and algebras')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('17Axx', 'General nonassociative rings')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('17Bxx', 'Lie algebras and Lie superalgebras')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('17Cxx', 'Jordan algebras (algebras, triples and pairs)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('17Dxx', 'Other nonassociative rings and algebras')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('18-XX', 'Category theory; homological algebra')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('18Axx', 'General theory of categories and functors')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('18Bxx', 'Special categories')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('18Cxx', 'Categories and theories')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('18Dxx', 'Categories with structure')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('18Exx', 'Abelian categories')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('18Fxx', 'Categories and geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('18Gxx', 'Homological algebra')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('19-XX', '$K$-theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('19Axx', 'Grothendieck groups and $K_0$')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('19Bxx', 'Whitehead groups and $K_1$')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('19Cxx', 'Steinberg groups and $K_2$')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('19Dxx', 'Higher algebraic $K$-theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('19Exx', '$K$-theory in geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('19Fxx', '$K$-theory in number theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('19Gxx', '$K$-theory of forms')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('19Jxx', 'Obstructions from topology')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('19Kxx', '$K$-theory and operator algebras')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('19Lxx', 'Topological $K$-theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('19Mxx', 'Miscellaneous applications of $K$-theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('20-XX', 'Group theory and generalizations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('20Axx', 'Foundations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('20Bxx', 'Permutation groups')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('20Cxx', 'Representation theory of groups')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('20Dxx', 'Abstract finite groups')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('20Exx', 'Structure and classification of infinite or finite groups')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('20Fxx', 'Special aspects of infinite or finite groups')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('20Gxx', 'Linear algebraic groups and related topics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('20Hxx', 'Other groups of matrices')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('20Jxx', 'Connections with homological algebra and category theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('20Kxx', 'Abelian groups')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('20Lxx', 'Groupoids (i.e. small categories in which all morphisms are isomorphisms)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('20Mxx', 'Semigroups')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('20Nxx', 'Other generalizations of groups')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('20Pxx', 'Probabilistic methods in group theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('22-XX', 'Topological groups, Lie groups')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('22Axx', 'Topological and differentiable algebraic systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('22Bxx', 'Locally compact abelian groups (LCA groups)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('22Cxx', 'Compact groups')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('22Dxx', 'Locally compact groups and their algebras')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('22Exx', 'Lie groups')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('22Fxx', 'Noncompact transformation groups')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('26-XX', 'Real functions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('26Axx', 'Functions of one variable')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('26Bxx', 'Functions of several variables')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('26Cxx', 'Polynomials, rational functions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('26Dxx', 'Inequalities')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('26Exx', 'Miscellaneous topics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('28-XX', 'Measure and integration')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('28Axx', 'Classical measure theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('28Bxx', 'Set functions, measures and integrals with values in abstract spaces')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('28Cxx', 'Set functions and measures on spaces with additional structure')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('28Dxx', 'Measure-theoretic ergodic theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('28Exx', 'Miscellaneous topics in measure theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('30-XX', 'Functions of a complex variable')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('30Axx', 'General properties')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('30Bxx', 'Series expansions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('30Cxx', 'Geometric function theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('30Dxx', 'Entire and meromorphic functions, and related topics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('30Exx', 'Miscellaneous topics of analysis in the complex domain')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('30Fxx', 'Riemann surfaces')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('30Gxx', 'Generalized function theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('30Hxx', 'Spaces and algebras of analytic functions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('30Jxx', 'Function theory on the disc')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('30Kxx', 'Universal holomorphic functions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('30Lxx', 'Analysis on metric spaces')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('31-XX', 'Potential theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('31Axx', 'Two-dimensional theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('31Bxx', 'Higher-dimensional theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('31Cxx', 'Other generalizations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('31Dxx', 'Axiomatic potential theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('31Exx', 'Potential theory on metric spaces')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32-XX', 'Several complex variables and analytic spaces')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32Axx', 'Holomorphic functions of several complex variables')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32Bxx', 'Local analytic geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32Cxx', 'Analytic spaces')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32Dxx', 'Analytic continuation')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32Exx', 'Holomorphic convexity')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32Fxx', 'Geometric convexity')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32Gxx', 'Deformations of analytic structures')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32Hxx', 'Holomorphic mappings and correspondences')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32Jxx', 'Compact analytic spaces')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32Kxx', 'Generalizations of analytic spaces (should also be assigned at least one other classification number from Section 32 describing the type of problem)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32Lxx', 'Holomorphic fiber spaces')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32Mxx', 'Complex spaces with a group of automorphisms')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32Nxx', 'Automorphic functions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32Pxx', 'Non-Archimedean analysis (should also be assigned at least one other classification number from Section 32 describing the type of problem)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32Qxx', 'Complex manifolds')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32Sxx', 'Singularities')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32Txx', 'Pseudoconvex domains')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32Uxx', 'Pluripotential theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32Vxx', 'CR manifolds')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('32Wxx', 'Differential operators in several variables')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('33-XX', 'Special functions ( 33-XX deals with the properties of functions as functions)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('33Bxx', 'Elementary classical functions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('33Cxx', 'Hypergeometric functions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('33Dxx', 'Basic hypergeometric functions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('33Exx', 'Other special functions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('33Fxx', 'Computational aspects')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('34-XX', 'Ordinary differential equations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('34Axx', 'General theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('34Bxx', 'Boundary value problems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('34Cxx', 'Qualitative theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('34Dxx', 'Stability theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('34Exx', 'Asymptotic theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('34Fxx', 'Equations and systems with randomness')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('34Gxx', 'Differential equations in abstract spaces')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('34Hxx', 'Control problems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('34Kxx', 'Functional-differential and differential-difference equations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('34Lxx', 'Ordinary differential operators')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('34Mxx', 'Differential equations in the complex domain')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('34Nxx', 'Dynamic equations on time scales or measure chains')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('35-XX', 'Partial differential equations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('35Axx', 'General topics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('35Bxx', 'Qualitative properties of solutions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('35Cxx', 'Representations of solutions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('35Dxx', 'Generalized solutions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('35Exx', 'Equations and systems with constant coefficients')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('35Fxx', 'General first-order equations and systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('35Gxx', 'General higher-order equations and systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('35Hxx', 'Close-to-elliptic equations and systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('35Jxx', 'Elliptic equations and systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('35Kxx', 'Parabolic equations and systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('35Lxx', 'Hyperbolic equations and systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('35Mxx', 'Equations and systems of special type (mixed, composite, etc.)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('35Nxx', 'Overdetermined systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('35Pxx', 'Spectral theory and eigenvalue problems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('35Qxx', 'Equations of mathematical physics and other areas of application')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('35Rxx', 'Miscellaneous topics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('35Sxx', 'Pseudodifferential operators and other generalizations of partial differential operators')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('37-XX', 'Dynamical systems and ergodic theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('37Axx', 'Ergodic theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('37Bxx', 'Topological dynamics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('37Cxx', 'Smooth dynamical systems: general theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('37Dxx', 'Dynamical systems with hyperbolic behavior')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('37Exx', 'Low-dimensional dynamical systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('37Fxx', 'Complex dynamical systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('37Gxx', 'Local and nonlocal bifurcation theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('37Hxx', 'Random dynamical systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('37Jxx', 'Finite-dimensional Hamiltonian, Lagrangian, contact, and nonholonomic systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('37Kxx', 'Infinite-dimensional Hamiltonian systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('37Lxx', 'Infinite-dimensional dissipative dynamical systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('37Mxx', 'Approximation methods and numerical treatment of dynamical systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('37Nxx', 'Applications')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('37Pxx', 'Arithmetic and non-Archimedean dynamical systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('39-XX', 'Difference and functional equations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('39Axx', 'Difference equations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('39Bxx', 'Functional equations and inequalities')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('40-XX', 'Sequences, series, summability')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('40Axx', 'Convergence and divergence of infinite limiting processes')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('40Bxx', 'Multiple sequences and series')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('40Cxx', 'General summability methods')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('40Dxx', 'Direct theorems on summability')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('40Exx', 'Inversion theorems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('40Fxx', 'Absolute and strong summability (should also be assigned at least one other classification number in Section 40)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('40Gxx', 'Special methods of summability')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('40Hxx', 'Functional analytic methods in summability')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('40Jxx', 'Summability in abstract structures')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('41-XX', 'Approximations and expansions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('41Axx', 'Approximations and expansions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('42-XX', 'Harmonic analysis on Euclidean spaces')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('42Axx', 'Harmonic analysis in one variable')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('42Bxx', 'Harmonic analysis in several variables')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('42Cxx', 'Nontrigonometric harmonic analysis')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('43-XX', 'Abstract harmonic analysis')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('43Axx', 'Abstract harmonic analysis')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('44-XX', 'Integral transforms, operational calculus')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('44Axx', 'Integral transforms, operational calculus')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('45-XX', 'Integral equations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('45Axx', 'Linear integral equations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('45Bxx', 'Fredholm integral equations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('45Cxx', 'Eigenvalue problems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('45Dxx', 'Volterra integral equations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('45Exx', 'Singular integral equations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('45Fxx', 'Systems of linear integral equations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('45Gxx', 'Nonlinear integral equations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('45Hxx', 'Miscellaneous special kernels')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('45Jxx', 'Integro-ordinary differential equations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('45Kxx', 'Integro-partial differential equations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('45Lxx', 'Theoretical approximation of solutions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('45Mxx', 'Qualitative behavior')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('45Nxx', 'Abstract integral equations, integral equations in abstract spaces')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('45Pxx', 'Integral operators')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('45Qxx', 'Inverse problems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('45Rxx', 'Random integral equations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('46-XX', 'Functional analysis')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('46Axx', 'Topological linear spaces and related structures')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('46Bxx', 'Normed linear spaces and Banach spaces; Banach lattices')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('46Cxx', 'Inner product spaces and their generalizations, Hilbert spaces')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('46Exx', 'Linear function spaces and their duals')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('46Fxx', 'Distributions, generalized functions, distribution spaces')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('46Gxx', 'Measures, integration, derivative, holomorphy (all involving infinite-dimensional spaces)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('46Hxx', 'Topological algebras, normed rings and algebras, Banach algebras')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('46Jxx', 'Commutative Banach algebras and commutative topological algebras')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('46Kxx', 'Topological (rings and) algebras with an involution')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('46Lxx', 'Selfadjoint operator algebras ($C^*$-algebras, von Neumann ($W^*$-) algebras, etc.)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('46Mxx', 'Methods of category theory in functional analysis')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('46Nxx', 'Miscellaneous applications of functional analysis')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('46Sxx', 'Other (nonclassical) types of functional analysis')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('46Txx', 'Nonlinear functional analysis')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('47-XX', 'Operator theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('47Axx', 'General theory of linear operators')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('47Bxx', 'Special classes of linear operators')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('47Cxx', 'Individual linear operators as elements of algebraic systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('47Dxx', 'Groups and semigroups of linear operators, their generalizations and applications')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('47Exx', 'Ordinary differential operators')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('47Fxx', 'Partial differential operators')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('47Gxx', 'Integral, integro-differential, and pseudodifferential operators')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('47Hxx', 'Nonlinear operators and their properties')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('47Jxx', 'Equations and inequalities involving nonlinear operators')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('47Lxx', 'Linear spaces and algebras of operators')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('47Nxx', 'Miscellaneous applications of operator theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('47Sxx', 'Other (nonclassical) types of operator theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('49-XX', 'Calculus of variations and optimal control; optimization')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('49Jxx', 'Existence theories')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('49Kxx', 'Optimality conditions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('49Lxx', 'Hamilton-Jacobi theories, including dynamic programming')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('49Mxx', 'Numerical methods')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('49Nxx', 'Miscellaneous topics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('49Qxx', 'Manifolds')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('49Rxx', 'Variational methods for eigenvalues of operators')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('49Sxx', 'Variational principles of physics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('51-XX', 'Geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('51Axx', 'Linear incidence geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('51Bxx', 'Nonlinear incidence geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('51Cxx', 'Ring geometry (Hjelmslev, Barbilian, etc.)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('51Dxx', 'Geometric closure systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('51Exx', 'Finite geometry and special incidence structures')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('51Fxx', 'Metric geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('51Gxx', 'Ordered geometries (ordered incidence structures, etc.)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('51Hxx', 'Topological geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('51Jxx', 'Incidence groups')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('51Kxx', 'Distance geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('51Lxx', 'Geometric order structures')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('51Mxx', 'Real and complex geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('51Nxx', 'Analytic and descriptive geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('51Pxx', 'Geometry and physics (should also be assigned at least one other classification number from Sections 70--86)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('52-XX', 'Convex and discrete geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('52Axx', 'General convexity')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('52Bxx', 'Polytopes and polyhedra')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('52Cxx', 'Discrete geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('53-XX', 'Differential geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('53Axx', 'Classical differential geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('53Bxx', 'Local differential geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('53Cxx', 'Global differential geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('53Dxx', 'Symplectic geometry, contact geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('53Zxx', 'Applications to physics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('54-XX', 'General topology')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('54Axx', 'Generalities')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('54Bxx', 'Basic constructions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('54Cxx', 'Maps and general types of spaces defined by maps')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('54Dxx', 'Fairly general properties')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('54Exx', 'Spaces with richer structures')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('54Fxx', 'Special properties')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('54Gxx', 'Peculiar spaces')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('54Hxx', 'Connections with other structures, applications')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('54Jxx', 'Nonstandard topology')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('55-XX', 'Algebraic topology')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('55Mxx', 'Classical topics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('55Nxx', 'Homology and cohomology theories')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('55Pxx', 'Homotopy theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('55Qxx', 'Homotopy groups')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('55Rxx', 'Fiber spaces and bundles')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('55Sxx', 'Operations and obstructions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('55Txx', 'Spectral sequences')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('55Uxx', 'Applied homological algebra and category theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('57-XX', 'Manifolds and cell complexes')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('57Mxx', 'Low-dimensional topology')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('57Nxx', 'Topological manifolds')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('57Pxx', 'Generalized manifolds')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('57Qxx', 'PL-topology')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('57Rxx', 'Differential topology')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('57Sxx', 'Topological transformation groups')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('57Txx', 'Homology and homotopy of topological groups and related structures')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('58-XX', 'Global analysis, analysis on manifolds')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('58Axx', 'General theory of differentiable manifolds')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('58Bxx', 'Infinite-dimensional manifolds')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('58Cxx', 'Calculus on manifolds; nonlinear operators')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('58Dxx', 'Spaces and manifolds of mappings (including nonlinear versions of 46Exx)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('58Exx', 'Variational problems in infinite-dimensional spaces')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('58Hxx', 'Pseudogroups, differentiable groupoids and general structures on manifolds')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('58Jxx', 'Partial differential equations on manifolds; differential operators')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('58Kxx', 'Theory of singularities and catastrophe theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('58Zxx', 'Applications to physics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('60-XX', 'Probability theory and stochastic processes')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('60Axx', 'Foundations of probability theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('60Bxx', 'Probability theory on algebraic and topological structures')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('60Cxx', 'Combinatorial probability')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('60Dxx', 'Geometric probability and stochastic geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('60Exx', 'Distribution theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('60Fxx', 'Limit theorems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('60Gxx', 'Stochastic processes')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('60Hxx', 'Stochastic analysis')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('60Jxx', 'Markov processes')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('60Kxx', 'Special processes')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('62-XX', 'Statistics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('62Axx', 'Foundational and philosophical topics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('62Bxx', 'Sufficiency and information')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('62Cxx', 'Decision theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('62Dxx', 'Sampling theory, sample surveys')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('62Exx', 'Distribution theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('62Fxx', 'Parametric inference')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('62Gxx', 'Nonparametric inference')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('62Hxx', 'Multivariate analysis')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('62Jxx', 'Linear inference, regression')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('62Kxx', 'Design of experiments')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('62Lxx', 'Sequential methods')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('62Mxx', 'Inference from stochastic processes')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('62Nxx', 'Survival analysis and censored data')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('62Pxx', 'Applications')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('62Qxx', 'Statistical tables')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65-XX', 'Numerical analysis')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65Axx', 'Tables')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65Bxx', 'Acceleration of convergence')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65Cxx', 'Probabilistic methods, simulation and stochastic differential equations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65Dxx', 'Numerical approximation and computational geometry (primarily algorithms)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65Exx', 'Numerical methods in complex analysis (potential theory, etc.)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65Fxx', 'Numerical linear algebra')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65Gxx', 'Error analysis and interval analysis')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65Hxx', 'Nonlinear algebraic or transcendental equations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65Jxx', 'Numerical analysis in abstract spaces')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65Kxx', 'Mathematical programming, optimization and variational techniques')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65Lxx', 'Ordinary differential equations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65Mxx', 'Partial differential equations, initial value and time-dependent initial-boundary value problems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65Nxx', 'Partial differential equations, boundary value problems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65Pxx', 'Numerical problems in dynamical systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65Qxx', 'Difference and functional equations, recurrence relations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65Rxx', 'Integral equations, integral transforms')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65Sxx', 'Graphical methods')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65Txx', 'Numerical methods in Fourier analysis')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65Yxx', 'Computer aspects of numerical algorithms')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('65Zxx', 'Applications to physics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('68-XX', 'Computer science')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('68Mxx', 'Computer system organization')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('68Nxx', 'Software')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('68Pxx', 'Theory of data')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('68Qxx', 'Theory of computing')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('68Rxx', 'Discrete mathematics in relation to computer science')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('68Txx', 'Artificial intelligence')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('68Uxx', 'Computing methodologies and applications')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('68Wxx', 'Algorithms')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('70-XX', 'Mechanics of particles and systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('70Axx', 'Axiomatics, foundations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('70Bxx', 'Kinematics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('70Cxx', 'Statics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('70Exx', 'Dynamics of a rigid body and of multibody systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('70Fxx', 'Dynamics of a system of particles, including celestial mechanics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('70Gxx', 'General models, approaches, and methods')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('70Hxx', 'Hamiltonian and Lagrangian mechanics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('70Jxx', 'Linear vibration theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('70Kxx', 'Nonlinear dynamics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('70Lxx', 'Random vibrations')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('70Mxx', 'Orbital mechanics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('70Pxx', 'Variable mass, rockets')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('70Qxx', 'Control of mechanical systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('70Sxx', 'Classical field theories')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('74-XX', 'Mechanics of deformable solids')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('74Axx', 'Generalities, axiomatics, foundations of continuum mechanics of solids')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('74Bxx', 'Elastic materials')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('74Cxx', 'Plastic materials, materials of stress-rate and internal-variable type')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('74Dxx', 'Materials of strain-rate type and history type, other materials with memory (including elastic materials with viscous damping, various viscoelastic materials)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('74Exx', 'Material properties given special treatment')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('74Fxx', 'Coupling of solid mechanics with other effects')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('74Gxx', 'Equilibrium (steady-state) problems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('74Hxx', 'Dynamical problems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('74Jxx', 'Waves')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('74Kxx', 'Thin bodies, structures')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('74Lxx', 'Special subfields of solid mechanics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('74Mxx', 'Special kinds of problems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('74Nxx', 'Phase transformations in solids')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('74Pxx', 'Optimization')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('74Qxx', 'Homogenization, determination of effective properties')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('74Rxx', 'Fracture and damage')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('74Sxx', 'Numerical methods')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76-XX', 'Fluid mechanics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Axx', 'Foundations, constitutive equations, rheology')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Bxx', 'Incompressible inviscid fluids')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Dxx', 'Incompressible viscous fluids')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Exx', 'Hydrodynamic stability')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Fxx', 'Turbulence')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Gxx', 'General aerodynamics and subsonic flows')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Hxx', 'Transonic flows')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Jxx', 'Supersonic flows')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Kxx', 'Hypersonic flows')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Lxx', 'Shock waves and blast waves')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Mxx', 'Basic methods in fluid mechanics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Nxx', 'Compressible fluids and gas dynamics, general')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Pxx', 'Rarefied gas flows, Boltzmann equation')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Qxx', 'Hydro- and aero-acoustics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Rxx', 'Diffusion and convection')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Sxx', 'Flows in porous media; filtration; seepage')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Txx', 'Two-phase and multiphase flows')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Uxx', 'Rotating fluids')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Vxx', 'Reaction effects in flows')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Wxx', 'Magnetohydrodynamics and electrohydrodynamics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Xxx', 'Ionized gas flow in electromagnetic fields; plasmic flow')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Yxx', 'Quantum hydrodynamics and relativistic hydrodynamics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('76Zxx', 'Biological fluid mechanics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('78-XX', 'Optics, electromagnetic theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('78Axx', 'General')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('78Mxx', 'Basic methods')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('80-XX', 'Classical thermodynamics, heat transfer')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('80Axx', 'Thermodynamics and heat transfer')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('80Mxx', 'Basic methods')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('81-XX', 'Quantum theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('81Pxx', 'Axiomatics, foundations, philosophy')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('81Qxx', 'General mathematical topics and methods in quantum theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('81Rxx', 'Groups and algebras in quantum theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('81Sxx', 'General quantum mechanics and problems of quantization')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('81Txx', 'Quantum field theory; related classical field theories')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('81Uxx', 'Scattering theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('81Vxx', 'Applications to specific physical systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('82-XX', 'Statistical mechanics, structure of matter')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('82Bxx', 'Equilibrium statistical mechanics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('82Cxx', 'Time-dependent statistical mechanics (dynamic and nonequilibrium)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('82Dxx', 'Applications to specific types of physical systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('83-XX', 'Relativity and gravitational theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('83Axx', 'Special relativity')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('83Bxx', 'Observational and experimental questions')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('83Cxx', 'General relativity')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('83Dxx', 'Relativistic gravitational theories other than Einstein\'s, including asymmetric field theories')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('83Exx', 'Unified, higher-dimensional and super field theories')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('83Fxx', 'Cosmology')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('85-XX', 'Astronomy and astrophysics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('85Axx', 'Astronomy and astrophysics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('86-XX', 'Geophysics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('86Axx', 'Geophysics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('90-XX', 'Operations research, mathematical programming')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('90Bxx', 'Operations research and management science')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('90Cxx', 'Mathematical programming')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('91-XX', 'Game theory, economics, social and behavioral sciences')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('91Axx', 'Game theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('91Bxx', 'Mathematical economics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('91Cxx', 'Social and behavioral sciences: general topics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('91Dxx', 'Mathematical sociology (including anthropology)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('91Exx', 'Mathematical psychology')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('91Fxx', 'Other social and behavioral sciences (mathematical treatment)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('91Gxx', 'Mathematical finance')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('92-XX', 'Biology and other natural sciences')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('92Bxx', 'Mathematical biology in general')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('92Cxx', 'Physiological, cellular and medical topics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('92Dxx', 'Genetics and population dynamics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('92Exx', 'Chemistry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('92Fxx', 'Other natural sciences (should also be assigned at least one other classification number in this section)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('93-XX', 'Systems theory; control')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('93Axx', 'General')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('93Bxx', 'Controllability, observability, and system structure')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('93Cxx', 'Control systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('93Dxx', 'Stability')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('93Exx', 'Stochastic systems and control')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('94-XX', 'Information and communication, circuits')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('94Axx', 'Communication, information')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('94Bxx', 'Theory of error-correcting codes and error-detecting codes')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('94Cxx', 'Circuits, networks')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('94Dxx', 'Fuzzy sets and logic (in connection with questions of Section 94)')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('97-XX', 'Mathematics education')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('97Axx', 'General, mathematics and education')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('97Bxx', 'Educational policy and systems')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('97Cxx', 'Psychology of mathematics education, research in mathematics education')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('97Dxx', 'Education and instruction in mathematics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('97Exx', 'Foundations of mathematics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('97Fxx', 'Arithmetic, number theory')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('97Gxx', 'Geometry')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('97Hxx', 'Algebra')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('97Ixx', 'Analysis')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('97Kxx', 'Combinatorics, graph theory, probability theory, statistics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('97Mxx', 'Mathematical modeling, applications of mathematics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('97Nxx', 'Numerical mathematics')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('97Pxx', 'Computer science')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('97Qxx', 'Computer science education')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('97Rxx', 'Computer science applications')</query>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('97Uxx', 'Educational material and media, educational technology')</query>
+	</sql>
+</schema>

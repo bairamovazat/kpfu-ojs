@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE data SYSTEM "../../../lib/pkp/dtd/xmlData.dtd">
+
+<!--
+  * 2.3.3_update.xml
+  *
+  * Copyright (c) 2013-2019 Simon Fraser University
+  * Copyright (c) 2003-2019 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * 2.3.3 database updates XML file.
+  -->
+<data>
+	<sql>
+		<query>INSERT INTO `revrec_msc_descriptions`(`msc_name`, `msc_descr`) VALUES ('00-XX', 'General')</query>
+	</sql>
+</data>
