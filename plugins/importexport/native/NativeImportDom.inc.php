@@ -785,6 +785,11 @@ class NativeImportDom {
 			$article->setSponsor($node->getValue(), $locale);
 		}
 
+		// Edited by Shamil K: add citations import
+		if (($node = $articleNode->getChildByName('citations'))){
+			$article->setCitations($node->getValue());
+		}
+
 		if (($node = $articleNode->getChildByName('pages'))) $article->setPages($node->getValue());
 		if (($language = $articleNode->getAttribute('language'))) $article->setLanguage($language);
 
@@ -937,6 +942,11 @@ class NativeImportDom {
 		$articleSearchIndex->articleMetadataChanged($article);
 		$articleSearchIndex->articleFilesChanged($article);
 		$articleSearchIndex->articleChangesFinished();
+		// Edited by Shamil K.
+		// Import the references list.
+		// $citationDao =& DAORegistry::getDAO('CitationDAO');
+		// $rawCitationList = $article->getCitations();
+		// $citationDao->importCitations($request, ASSOC_TYPE_ARTICLE, $article->getId(), $rawCitationList);
 
 		return true;
 	}

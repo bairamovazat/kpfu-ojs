@@ -40,6 +40,14 @@ class IndexHandler extends Handler {
 		$templateMgr->assign('helpTopicId', 'user.home');
 		$journal =& $router->getContext($request);
 		if ($journal) {
+			// Edited by Shamil K.
+			// redirect to elbib.ru.
+			if ($journal->getId() == 6) {
+				header("HTTP/1.1 301 Moved Permanently");
+				header("Location: https://elbib.ru");
+				exit();
+			}
+
 			// Assign header and content for home page
 			$templateMgr->assign('displayPageHeaderTitle', $journal->getLocalizedPageHeaderTitle(true));
 			$templateMgr->assign('displayPageHeaderLogo', $journal->getLocalizedPageHeaderLogo(true));

@@ -10,12 +10,14 @@
  *}
 
 {if $enableLanguageToggle}
+
 <div class="block" id="sidebarLanguageToggle">
 	<script type="text/javascript">
 		<!--
-		function changeLanguage() {ldelim}
-			var e = document.getElementById('languageSelect');
-			var new_locale = e.options[e.selectedIndex].value;
+		{* Edited by Shamil K.*}
+		function changeLanguage(lang) {ldelim}
+			//var e = document.getElementById('languageSelect');
+			var new_locale = lang; //e.options[e.selectedIndex].value;
 
 			var redirect_url = '{url|escape:"javascript" page="user" op="setLocale" path="NEW_LOCALE" source=$smarty.server.REQUEST_URI escape=false}';
 			redirect_url = redirect_url.replace("NEW_LOCALE", new_locale);
@@ -24,11 +26,11 @@
 		{rdelim}
 		//-->
 	</script>
-	<span class="blockTitle">{translate key="common.language"}</span>
-	<form action="#">
-		<label for="languageSelect">{translate key="plugins.block.languageToggle.selectLabel"}</label>
-		<select id="languageSelect" {if $isPostRequest}disabled="disabled" {/if}size="1" name="locale" class="selectMenu">{html_options options=$languageToggleLocales selected=$currentLocale}</select>
-		<input type="submit" class="button" value="{translate key='form.submit'}" onclick="changeLanguage(); return false;" />
-	</form>
+    {* Edited by Shamil K.*}
+	<a class="icon" onclick="changeLanguage('en_US'); return false;">
+	<img src="http://ojs.kpfu.ru/plugins/blocks/languageToggle/styles/en.png" alt="English" title="English" width="32" height="32"></a>
+
+	<a class="icon" onclick="changeLanguage('ru_RU'); return false;">
+	<img src="http://ojs.kpfu.ru/plugins/blocks/languageToggle/styles/ru.png" alt="Русский" title="Russian" width="32" height="32"></a>
 </div>
 {/if}

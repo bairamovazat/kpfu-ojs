@@ -262,6 +262,7 @@ class ArticleFileManager extends FileManager {
 
 	/**
 	 * Download a file.
+	 * Edited by Shamil K: добавил проверку на изображение, если это так то скачанный файл будет назван как был загружен.
 	 * @param $fileId int the file id of the file to download
 	 * @param $revision int the revision of the file to download
 	 * @param $inline print file as inline instead of attachment, optional
@@ -272,8 +273,9 @@ class ArticleFileManager extends FileManager {
 		if (isset($articleFile)) {
 			$fileType = $articleFile->getFileType();
 			$filePath = $this->filesDir .  $this->fileStageToPath($articleFile->getFileStage()) . '/' . $articleFile->getFileName();
-
-			return parent::downloadFile($filePath, $fileType, $inline);
+			if (parent::getDocumentType($fileType)=='image'){
+				return parent::downloadFile($filePath, $fileType, $inline, $articleFile->getOriginalFileName());
+			}else return parent::downloadFile($filePath, $fileType, $inline);
 
 		} else {
 			return false;
