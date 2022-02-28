@@ -46,6 +46,14 @@ class IndexHandler extends PKPIndexHandler {
 		$router = $request->getRouter();
 		$templateMgr = TemplateManager::getManager($request);
 		if ($journal) {
+			// Edited by Shamil K.
+			// redirect to elbib.ru.
+			if ($journal->getId() == 6) {
+				header("HTTP/1.1 301 Moved Permanently");
+				header("Location: https://elbib.ru");
+				exit();
+			}
+
 			// Assign header and content for home page
 			$templateMgr->assign(array(
 				'additionalHomeContent' => $journal->getLocalizedData('additionalHomeContent'),

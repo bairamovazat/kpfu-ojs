@@ -202,6 +202,22 @@ class ArticleHandler extends Handler {
 		));
 		$this->setupTemplate($request);
 
+		// TODO need to change
+		// Edited by Shamil K.
+		// redirect of old ojs.kpfu.ru/index.php/elbib to new elbib.ru.
+		if ($journal->getId() == 6) {
+			// echo 'redirect to ';
+		$urls = unserialize(file_get_contents("urls.txt"));
+			$new_url = 'https://elbib.ru/article/view/';
+			if (isset($urls[$articleId])) {
+				$new_url .= $urls[$articleId];
+			}
+			// echo $new_url, '<br>';
+			header("HTTP/1.1 301 Moved Permanently");
+			header("Location: $new_url");
+			exit();
+		}
+
 		$sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
 		$templateMgr->assign([
 			'ccLicenseBadge' => Application::get()->getCCLicenseBadge($publication->getData('licenseUrl')),
