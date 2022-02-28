@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * plugins/blocks/ljm/locale/ru_RU/locale.xml
+  *
+  * Copyright (c) 2016 Sam K.
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ru_RU (Русский) locale.
+  * With updates from Pavel Pisklakov (revising translation). 
+  -->
+ 
+<locale name="ru_RU" full_name="Русский">
+	<message key="plugins.block.ljm.displayName">Блок «Элементы LJM»</message>
+	<message key="plugins.block.ljm.description">Этот плагин добавляет элементы LJM.</message>
+	<message key="plugins.block.ljm.undertitle">Тематика: Алгебра - Математический анализ - Геометрия и топология - Математика -&lt;br/&gt;Теория вероятностей и случайных процессов</message>
+	<message key="plugins.block.ljm.kfu">Казанский (Приволжский) федеральный университет</message>
+	<message key="plugins.block.ljm.kfu-short">Казанский федеральный университет</message>
+	<message key="plugins.block.ljm.archiveinfo">Для архив-инфо</message>
+</locale>

@@ -1,0 +1,294 @@
+/**
+ * Copyright (c) 2016 Lobochecskii Journal of Mathematics Kazan Federal University
+ * Copyright (c) 2016 Shamil K.
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * LJM theme v1.0.1.
+ *
+ */
+
+body {
+	font-family: Arial,Verdana,Helvetica,sans-serif;
+	background-color: #fff;
+	min-width:768px;
+}
+
+#content a, a:link, a:visited {
+	color: #20538d;
+}
+
+#sidebar a, a:link, a:visited {
+	color: #2E2E2E;
+	text-decoration: none;
+	/* border-bottom: 1px solid #C8C8C8;  */
+	line-height: 1.5em;
+}
+
+a, a:link, a:visited {
+	color: #337ab7;
+	text-decoration: underline;
+	/* border-bottom: 1px solid #C8C8C8;  */
+	line-height: 1.5em;
+}
+
+a:hover {
+	background: #FAFAFA;
+}
+
+a.icon{
+	margin-right: 5px;
+}
+
+link[href*='rt.css'] #container{
+	min-width: 1080px !important;
+}
+
+#headerTitle{
+	color: #0A64A4;
+    text-decoration: none;
+}
+
+#header {
+    background-color: #fff;
+    margin-top: 0.625em;
+}
+
+#header h1 {
+    /* margin: 0 auto; */
+    /* padding: 19px 0 2px 10%; */
+    padding:0;
+    margin-left:10%; 
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    font-weight: normal;
+    font-size: 1.5em;
+    background-color: #fff;
+	text-align: initial;
+    /* min-height: 78px; */
+}
+
+#header h1+img{
+	display:none;
+}
+
+#header img {
+    float: left;
+    width: 5em;
+    height: 5em;
+}
+
+#header_title{
+    width: 17.5em;
+    margin-left: 6.458em;
+    padding: 0.875em 0;
+}
+
+#title_text{
+	/* padding-top: 0.8em; */
+}
+
+#leftSidebar {
+    float: none;
+}
+
+#rightSidebar {
+	margin-bottom: 5%;
+	margin-right: 5%;
+}
+
+#customblock-undertitle{
+	margin-top:10px;
+}
+
+
+#undertitle_text{
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+	font-size:0.5em;
+	color:#111;
+	line-height:1.7;
+	max-width:51em;
+}
+
+.full_line {
+    background-color: #65A5D1;
+    border: 1px solid #3E94D1;
+    min-height: 20px;
+    padding: 19px 0;
+}
+
+.white_text {
+    color: #fff;
+	font-size: 1.333em;
+    line-height: 1.42857143;
+    margin-left: 10%;
+    padding-left: 5px;
+}
+
+#customblock-kfu{
+	padding:0;
+	margin: 25px 0 0;
+}
+
+
+#navbar {text-align: right;border-bottom: 0px solid;line-height: normal;position: absolute;right: 0;top: 2px;left: 248px;margin-right: 10%;padding: 0;min-width: 28em;}
+
+#navbar .menu li {
+	font-family: Arial Narrow, Arial, Helvetica, sans-serif;
+	font-size: 1.5em;
+	padding: 0 3px 0 3px;
+}
+#navbar .menu li a {
+	color: #0A64A4;
+	padding: 5px 10px 2px 10px;
+	border: 3px solid transparent; /* Prevents menu flickering */
+
+	-webkit-border-top-left-radius: 2px;
+	-webkit-border-top-right-radius: 2px;
+	-moz-border-radius-topleft: 2px;
+	-moz-border-radius-topright: 2px;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+}
+#navbar .menu li a:hover, #navbar .menu li a:active {
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZjZmNmYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiZGJkYmQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(189,189,189,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(189,189,189,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(189,189,189,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(189,189,189,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(189,189,189,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(189,189,189,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#bdbdbd',GradientType=0 ); /* IE6-8 */
+}
+
+#main {
+	padding: 10px 0 0 5px;
+	margin-bottom: 80px;
+	margin-left: 10%;
+	position: static;
+	width: 63%;
+}
+
+#main h2{
+	font-size:	1.375em;
+}
+
+
+div.block, div#main {
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.block {
+	padding: 5px 10px 10px 10px;
+	margin: 8px 0;
+}
+
+.blockTitle {
+	font-weight: bold;
+	text-shadow: 0px 1px 0px #FFF;
+}
+
+#main h2, #content h3, #content h4 {
+	font-family: Gill Sans,Arial,Verdana,Helvetica,sans-serif;
+}
+
+#content {
+	width: 98%;
+	border-top: 2px solid #BDBDBD;
+	font-size: 0.875em;
+}
+
+input.defaultButton{background-color: #25288D;}
+
+input.defaultButton, input.button {
+}
+
+input.button, input.defaultButton {
+    border-radius: 3px;
+}
+
+input.button:hover {
+	border: 2px solid #696AA2;
+}
+
+input.textField, select.selectMenu, textarea.textArea, input.uploadField {
+	background-color: white;
+	border: 2px solid #BDBDBD;
+}
+
+#pagefooterbox{
+	position:fixed;
+	bottom:0px;
+	width:100%;
+	z-index: 100;
+}
+
+#footerbox{
+	background-color: #61D8A2;
+    border: 1px solid #36D88E;
+	padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#footertext{
+	font-size:1.143em;
+    line-height: 1.72857143;
+    padding-left: 7%;
+	color: #2E2E2E;
+}
+
+#footertext a{
+	border-bottom:none;
+}
+
+#footertext a:hover{
+	text-decoration:underline;
+	background:none;
+}
+/* 
+@media screen and (max-width: 1280px) {
+	#navbar {
+		text-align: right;
+		border-bottom: 0px solid;
+		line-height: normal;
+		position:absolute;
+		right: 5%;
+		top: 125px;
+		left:215px;
+		margin-left:15px;
+		min-width: 450px;
+		/* max-width: 1600px; */
+	}
+} 
+
+@media screen and (max-width: 1440px) {
+	#navbar {
+		margin-right:0;
+	}
+}  */
+
+table .notifications {
+    border-bottom: #BDBDBD solid 1px !important;
+}
+
+
+@media screen and (max-width : 1280px) {
+    
+	#main {
+		margin-left: 4%;
+		width: 80%;
+	}
+	#rightSidebar {
+		width: 14%;
+		margin-right: 0;
+		margin-left: 0;
+	}
+	#header h1 {
+		margin-left: 4%;
+	}
+	#navbar {
+		margin-right: inherit;
+	}
+}
