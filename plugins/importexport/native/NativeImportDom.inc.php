@@ -784,12 +784,12 @@ class NativeImportDom {
 			}
 			$article->setSponsor($node->getValue(), $locale);
 		}
-		
+
 		//Shamil K. add citations import
 		if (($node = $articleNode->getChildByName('citations'))){
-			$article->setCitations($node->getValue());		
+			$article->setCitations($node->getValue());
 		}
-		
+
 		if (($node = $articleNode->getChildByName('pages'))) $article->setPages($node->getValue());
 		if (($language = $articleNode->getAttribute('language'))) $article->setLanguage($language);
 
@@ -817,7 +817,7 @@ class NativeImportDom {
 			}
 		}
 		if ($hasErrors) return false;
-		
+
 		// Create submission mangement records
 		$signoffDao =& DAORegistry::getDAO('SignoffDAO');
 

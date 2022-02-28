@@ -1,8 +1,8 @@
 {**
  * plugins/citationFormats/abnt/citation.tpl
  *
- * Copyright (c) 2013-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2013-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
  * With contributions from by Lepidus Tecnologia
  *
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -31,5 +31,5 @@
 {if $currentJournal->getSetting('onlineIssn')}ISSN {$currentJournal->getSetting('onlineIssn')|escape}.
 {elseif $currentJournal->getSetting('printIssn')}ISSN {$currentJournal->getSetting('printIssn')|escape}. {/if}
 {translate key="plugins.citationFormats.abnt.retrieved" retrievedDate=$smarty.now|abnt_date_format_with_day url=$articleUrl}
-{if $article->getPubId('doi')}doi:<a href="http://dx.doi.org/{$article->getPubId('doi')|escape}">http://dx.doi.org/{$article->getPubId('doi')|escape}</a>. {/if}
+{if $article->getPubId('doi')}doi:<a href="https://doi.org/{$article->getPubId('doi')|escape}">https://doi.org/{$article->getPubId('doi')|escape}</a>. {/if}
 </div>

@@ -7,7 +7,6 @@
  *
  * Submission summary.
  *
- * Edited Shamil K. 04.05.2018
  *}
 {strip}
 {translate|assign:"pageTitleTranslated" key="submission.page.summary" id=$submission->getId()}
