@@ -396,7 +396,8 @@ class ReviewerAction extends Action {
 		$result = false;
 		if (!HookRegistry::call('ReviewerAction::downloadReviewerFile', array(&$article, &$fileId, &$revision, &$canDownload, &$result))) {
 			if ($canDownload) {
-				return Action::downloadFile($article->getId(), $fileId, $revision);
+				//Edited by Shamil K.
+				return Action::viewFile($article->getId(), $fileId, $revision);
 			} else {
 				return false;
 			}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * plugins/importexport/articulus/locale/ru_RU/locale.xml
+  *
+  * Copyright (c) 2013-2016 Simon Fraser University Library
+  * Copyright (c) 2003-2016 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ru_RU (Русский) locale.
+  * With updates from Pavel Pisklakov (revising translation). 
+  -->
+ 
+<locale name="ru_RU" full_name="Русский">
+	<message key="plugins.importexport.articulus.displayName">Плагин «Экспорт выпусков в формате Elibrary»</message>
+	<message key="plugins.importexport.articulus.description">Этот плагин предназначен для формирования XML-файла с метаданными всех статей выпуска в формате Российского индекса научного цитирования.</message>
+	<message key="plugins.importexport.articulus.cliUsage"><![CDATA[Вызов: {$scriptName} {$pluginName} [команда] ...
+Команды:
+	import [xmlFileName] [journal_path] [user_name] ...
+	export [xmlFileName] [journal_path] articles [articleId1] [articleId2] ...
+	export [xmlFileName] [journal_path] article [articleId]
+	export [xmlFileName] [journal_path] issues [issueId1] [issueId2] ...
+	export [xmlFileName] [journal_path] issue [issueId]
+
+Для импорта данных требуются те или иные дополнительные параметры в зависимости 
+от корневого узла XML-документа.
+
+Если корневой узел <article> или <articles>, требуются дополнительные параметры.
+Разрешены следующие форматы:
+
+{$scriptName} {$pluginName} import [xmlFileName] [journal_path] [user_name]
+	issue_id [issueId] section_id [sectionId]
+
+{$scriptName} {$pluginName} import [xmlFileName] [journal_path] [user_name]
+	issue_id [issueId] section_name [name]
+
+{$scriptName} {$pluginName} import [xmlFileName] [journal_path]
+	issue_id [issueId] section_abbrev [abbrev]
+]]></message>
+	<message key="plugins.importexport.articulus.export">Экспортировать данные</message>
+	<message key="plugins.importexport.articulus.export.issues">Экспортировать выпуски</message>
+	<message key="plugins.importexport.articulus.export.sections">Экспортировать разделы</message>
+	<message key="plugins.importexport.articulus.export.articles">Экспортировать статьи</message>
+
+	<message key="plugins.importexport.articulus.selectIssue">Выберите выпуск</message>
+	<message key="plugins.importexport.articulus.selectArticle">Выберите статью</message>
+
+	<message key="plugins.importexport.articulus.cliError">ОШИБКА:</message>
+	<message key="plugins.importexport.articulus.error.uploadFailed">Загрузка завершилась неудачей; пожалуйста убедитесь, что загрузки разрешены на вашем сервере и что файл не слишком большой для текущей конфигурации вашего веб-сервера и PHP.</message>
+	<message key="plugins.importexport.articulus.error.unknownUser">Указанный пользователь, «{$userName}», не существует.</message>
+	<message key="plugins.importexport.articulus.error.unknownJournal">Указанный путь журнала, «{$journalPath}», не существует.</message>
+	<message key="plugins.importexport.articulus.export.error.couldNotWrite">Не могу записать в файл «{$fileName}».</message>
+	<message key="plugins.importexport.articulus.export.error.sectionNotFound">Нет раздела с указанным идентификатором раздела «{$sectionIdentifier}».</message>
+	<message key="plugins.importexport.articulus.export.error.issueNotFound">Нет выпуска с указанным ID выпуска «{$issueId}».</message>
+	<message key="plugins.importexport.articulus.export.error.articleNotFound">Нет статьи с указанным ID статьи «{$articleId}».</message>
+</locale>

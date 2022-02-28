@@ -8,6 +8,7 @@
  * Site index.
  *
  *}
+{*Edited by Shamil K.*}
 {strip}
 {if $siteTitle}
 	{assign var="pageTitleTranslated" value=$siteTitle}
@@ -15,12 +16,16 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<br />
 
 {if $intro}<div id="intro">{$intro|nl2br}</div>{/if}
 
 <a name="journals"></a>
-
+<ul>
+{foreach from=$categories item=categoryArray}
+	{assign var=category value=$categoryArray.category}
+	<li><a href="{url op="category" path=$category->getId()}">{$category->getLocalizedName()|escape}</a> ({$categoryArray.journals|@count})</li>
+{/foreach}
+</ul>
 {if $useAlphalist}
 	<p>{foreach from=$alphaList item=letter}<a href="{url searchInitial=$letter sort="title"}">{if $letter == $searchInitial}<strong>{$letter|escape}</strong>{else}{$letter|escape}{/if}</a> {/foreach}<a href="{url}">{if $searchInitial==''}<strong>{translate key="common.all"}</strong>{else}{translate key="common.all"}{/if}</a></p>
 {/if}

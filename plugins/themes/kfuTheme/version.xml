@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE version SYSTEM "../../../lib/pkp/dtd/pluginVersion.dtd">
+
+<!--
+  * plugins/themes/kfuTheme/version.xml
+  *
+  * Copyright (c) 2016 Kazan Federal University
+  * Copyright (c) 2016 Shamil K.
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Plugin version information.
+  -->
+<version>
+	<application>kfuTheme</application>
+	<type>plugins.themes</type>
+	<release>1.0.0.0</release>
+	<date>2016-08-24</date>
+</version>

@@ -1,0 +1,232 @@
+/**
+ * Copyright (c) 2016 Lobochecskii Journal of Mathematics Kazan Federal University
+ * Copyright (c) 2016 Shamil K.
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * KazGik Vestnik theme v1.0.0.
+ *
+ */
+
+body {
+	font-family: Arial,Verdana,Helvetica,sans-serif;
+	background-color: #fff;
+	min-width:768px;
+}
+
+a, a:link, a:visited {
+	color: #2E2E2E;
+	text-decoration: none;
+	border-bottom: 1px solid #C8C8C8;
+	line-height: 1.5em;
+}
+
+a:hover {
+	background: #FAFAFA;
+}
+
+link[href*='rt.css'] #container{
+	min-width: 1080px !important;
+}
+
+#alt_header{
+	display: table;
+}
+
+#headerTitle{
+	color: #0A64A4;
+    text-decoration: none;
+}
+
+#header {
+    background-color: #fff;
+    margin-top: 0.625em;
+}
+
+#header h1 {
+    padding:0;
+    margin-left:10%; 
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    font-weight: normal;
+    font-size: 1.5em;
+    background-color: #fff;
+	text-align: initial;
+}
+
+#header h1+img{
+	display:none;
+}
+
+#header img {
+    float: left;
+    width: 5em;
+    height: 5em;
+}
+
+#alt_header_img{
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 2px;
+}
+
+#header_title{
+    width: 17.5em;
+    padding-left: 15px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#title_text{
+	/* padding-top: 0.5em; */
+	font-family: Georgia, 'Minion Pro';
+	font-size: 24pt;
+	font-weight: bold;
+	color: #004f34;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+
+#leftSidebar {
+    float: none;
+}
+
+#rightSidebar {
+}
+
+#customblock-undertitle{
+	margin-top:10px;
+}
+
+
+#undertitle_text{
+    font-family:  Georgia, 'Minion Pro';
+    font-size: 0.85em;
+    color:#111;
+    /* line-height: 1; */
+    /* max-width:51em; */
+    color: #004f34;
+    font-weight: bold;
+    font-style: oblique;
+}
+
+.full_line {
+    background-color: #65A5D1;
+    border: 1px solid #3E94D1;
+    min-height: 20px;
+    padding: 19px 0;
+}
+
+.white_text {
+    color: #fff;
+	font-size: 1.333em;
+    line-height: 1.42857143;
+    margin-left: 10%;
+    padding-left: 5px;
+}
+
+#customblock-kfu{
+	padding:0;
+	margin: 25px 0 0;
+}
+
+/*
+#navbar {text-align: right;border-bottom: 0px solid;line-height: normal;position: absolute;right: 0;top: 2px;left: 248px;margin-right: 10%;padding: 0;min-width: 28em;}
+
+#navbar .menu li {
+	font-family: Arial Narrow, Arial, Helvetica, sans-serif;
+	font-size: 1.5em;
+	padding: 0 3px 0 3px;
+}
+*/
+
+#navbar {
+    padding: 0;
+    border-bottom: none;
+    background-color: #004F34;
+    min-height: 36px;
+    width: 100%;
+    list-style: none;
+    font-size: 1em;
+}
+
+#navbar a{
+	display: inline-block;
+	border-bottom: 2px solid transparent;
+	font-size: 1em;
+	font-weight: bold;
+	text-transform: initial;
+	color: white;
+	cursor: pointer;
+	padding: 8px 15px;
+	text-align: center;
+	line-height: initial;
+}
+
+#navbar a:hover{
+    background-color: #7A726E;
+}
+
+
+ul.menu {
+}
+
+ul.menu li {
+    padding: 0;
+    margin: 0;
+    display: inline;
+}
+
+#main {
+	padding: 10px 0 0 5px;
+	margin-bottom: 80px;
+	margin-left: 10%;
+	position: static;
+	width: 63%;
+}
+
+#main h2{
+	font-size:	1.375em;
+}
+
+div#journalDescription {
+    text-align: justify;
+}
+
+#descriptionTitleImg{
+	padding: 0 20px 5px 0;
+}
+
+
+div.block, div#main {
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+#main h2, #content h3, #content h4 {
+	font-family: Gill Sans,Arial,Verdana,Helvetica,sans-serif;
+}
+
+#content {
+	/* width: 98%; */
+	border-top: 2px solid #BDBDBD;
+	font-size: 1em;
+}
+
+input.defaultButton{background-color: #004F34;}
+
+input.defaultButton, input.button {
+}
+
+input.button, input.defaultButton {
+    border-radius: 3px;
+    font-size: 0.875em;
+}
+
+input.button:hover {
+	border: 2px solid #696AA2;
+}
+
+input.textField, select.selectMenu, textarea.textArea, input.uploadField {
+	background-color: white;
+	border: 2px solid #BDBDBD;
+}

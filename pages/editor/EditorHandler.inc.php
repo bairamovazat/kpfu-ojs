@@ -270,6 +270,13 @@ class EditorHandler extends SectionEditorHandler {
 		$templateMgr->assign('sectionOptions', $filterSectionOptions);
 
 		$templateMgr->assign_by_ref('submissions', $submissions);
+
+		// Edited by Shamil K.
+		$issueDao =& DAORegistry::getDAO('IssueDAO');
+		$templateMgr->assign_by_ref('issueDao', $issueDao);
+		$publishedArticleDao =& DAORegistry::getDAO('PublishedArticleDAO');
+		$templateMgr->assign_by_ref('publishedArticleDao', $publishedArticleDao);
+
 		$templateMgr->assign('filterEditor', $filterEditor);
 		$templateMgr->assign('filterSection', $filterSection);
 

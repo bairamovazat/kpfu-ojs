@@ -8,10 +8,11 @@
  * Show editor's submissions in editing.
  *
  *}
+{*Edited by Shamil K.*}
 <div id="submissions">
 <table width="100%" class="listing">
 	<tr>
-		<td colspan="9" class="headseparator">&nbsp;</td>
+		<td colspan="10" class="headseparator">&nbsp;</td>
 	</tr>
 	<tr class="heading" valign="bottom">
 		<td width="5%">{sort_search key="common.id" sort="id"}</td>
@@ -19,13 +20,14 @@
 		<td width="5%">{sort_search key="submissions.sec" sort="section"}</td>
 		<td width="15%">{sort_search key="article.authors" sort="authors"}</td>
 		<td width="25%">{sort_search key="article.title" sort="title"}</td>
-		<td width="10%">{sort_search key="submission.copyedit" sort="subCopyedit"}</td>
-		<td width="10%">{sort_search key="submission.layout" sort="subLayout"}</td>
-		<td width="10%">{sort_search key="submissions.proof" sort="subProof"}</td>
+		<td width="8%">{sort_search key="submission.copyedit" sort="subCopyedit"}</td>
+		<td width="8%">{sort_search key="submission.layout" sort="subLayout"}</td>
+		<td width="8%">{sort_search key="submissions.proof" sort="subProof"}</td>
 		<td width="5%">{translate key="article.sectionEditor"}</td>
+		<td width="10%">{sort_search key="issue.issue"}</td>
 	</tr>
 	<tr>
-		<td colspan="9" class="headseparator">&nbsp;</td>
+		<td colspan="10" class="headseparator">&nbsp;</td>
 	</tr>
 	
 	{iterate from=submissions item=submission}
@@ -34,7 +36,15 @@
 	{assign var="copyeditorFinalSignoff" value=$submission->getSignoff('SIGNOFF_COPYEDITING_FINAL')}
 	{assign var="highlightClass" value=$submission->getHighlightClass()}
 	{assign var="fastTracked" value=$submission->getFastTracked()}
-	<tr valign="top"{if $highlightClass || $fastTracked} class="{$highlightClass|escape} {if $fastTracked}fastTracked{/if}"{/if}>
+	{assign var='publishedArticle' value=$publishedArticleDao->getPublishedArticleByArticleId($submission->getId())}
+	{if $publishedArticle}
+		{assign var='issueId' value=$publishedArticle->getIssueId()}
+		{assign var='issue' value=$issueDao->getIssueById($issueId)}
+		{assign var='issueTitle' value=$issue->getIssueIdentification(true)}
+	{else}
+		{assign var='issueTitle' value=-101}
+	{/if}
+	<tr valign="top"{if $highlightClass || $fastTracked} class="{$highlightClass|escape} {if $fastTracked}fastTracked{/if}"{/if} {if $issueTitle!=-101} style="color:#006100;background:#c6efce;"{/if}>
 		<td>{$submission->getId()}</td>
 		<td>{$submission->getDateSubmitted()|date_format:$dateFormatTrunc}</td>
 		<td>{$submission->getSectionAbbrev()|escape}</td>
@@ -47,17 +57,22 @@
 			{assign var="editAssignments" value=$submission->getEditAssignments()}
 			{foreach from=$editAssignments item=editAssignment}{$editAssignment->getEditorInitials()|escape} {/foreach}
 		</td>
+		<td>
+			{if $issueTitle!=-101}
+				<a href='{url op="issueToc" path=$issue->getId()}' class="action">{$issueTitle|strip_unsafe_html|nl2br}</a>
+			{else}&mdash;{/if}
+		</td>
 	</tr>
 	<tr>
-		<td colspan="9" class="{if $submissions->eof()}end{/if}separator">&nbsp;</td>
+		<td colspan="10" class="{if $submissions->eof()}end{/if}separator">&nbsp;</td>
 	</tr>
 {/iterate}
 {if $submissions->wasEmpty()}
 	<tr>
-		<td colspan="9" class="nodata">{translate key="submissions.noSubmissions"}</td>
+		<td colspan="10" class="nodata">{translate key="submissions.noSubmissions"}</td>
 	</tr>
 	<tr>
-		<td colspan="9" class="endseparator">&nbsp;</td>
+		<td colspan="10" class="endseparator">&nbsp;</td>
 	</tr>
 {else}
 	<tr>

@@ -2,7 +2,7 @@
 <!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
 
 <!--
-  * plugins/citationFormats/refMan/locale/id_ID/locale.xml
+  * locale.xml
   *
   * Copyright (c) 2013-2018 Simon Fraser University
   * Copyright (c) 2003-2018 John Willinsky
@@ -11,7 +11,7 @@
   * Localization strings.
   -->
 
-<locale name="id_ID" full_name="Bahasa Indonesia">
+<locale name="id_ID" full_name="Indonesia">
 	<message key="plugins.citationFormats.refMan.displayName"> Plugin format kutipan manajer referensi</message>
 	<message key="plugins.citationFormats.refMan.citationFormatName"> Manajer Referensi format RIS (hanya windows)</message>
 	<message key="plugins.citationFormats.refMan.description"> Plugin ini menerapkan format kutipan Manajer Referensi.</message> 

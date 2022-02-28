@@ -629,7 +629,8 @@
 	<message key="reviewer.competingInterests">Конфликт интересов</message>
         <message key="reviewer.article.enterReviewA">Щелкните на значке, чтобы ввести (или вставить) вашу рецензию на эту статью.</message>
         <message key="reviewer.article.uploadFile">В дополнение, вы можете загрузить файлы для редактора и/или автора для консультации.</message>
-        <message key="reviewer.article.selectRecommendation">Выберите рекомендацию и отправьте рецензию для завершения процесса редактирования. Вы должны ввести рецензию или загрузить файл до выбора рекомендации.</message>
+        <!-- Edited by Shamil K.-->
+        <message key="reviewer.article.selectRecommendation">Выберите рекомендацию и отправьте рецензию для завершения процесса редактирования. Вы должны ввести рецензию (п. 3) или загрузить файл (п. 4) до выбора рекомендации.</message>
 	<message key="reviewer.article.mustSelectDecision">Рекомендация не была выбрана. Вы должны выбрать рекомендацию для отправки.</message>
 	<message key="reviewer.article.confirmDecision">Как только вы запишите свое решение, вы больше не сможете вносить изменения в эту рецензию. Вы уверены, что хотите продолжить?</message>
 	<message key="reviewer.article.ensuringBlindReview">Обеспечение слепого рецензирования</message>

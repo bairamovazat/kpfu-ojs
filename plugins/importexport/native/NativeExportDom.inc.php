@@ -276,6 +276,10 @@ class NativeExportDom {
 			}
 		}
 
+
+		// Edited by Shamil K: add citations export
+		XMLCustomWriter::createChildWithText($doc, $root, 'citations', $article->getCitations(null), false);
+
 		XMLCustomWriter::createChildWithText($doc, $root, 'pages', $article->getPages(), false);
 
 		$node = XMLCustomWriter::createChildWithText($doc, $root, 'date_published', NativeExportDom::formatDate($article->getDatePublished()), false);
