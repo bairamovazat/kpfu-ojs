@@ -13,7 +13,7 @@
  * @brief "LJM" theme plugin
  */
 
-import('classes.plugins.ThemePlugin');
+import('lib.pkp.classes.plugins.ThemePlugin');
 
 class LJMThemePlugin extends ThemePlugin {
 	/**

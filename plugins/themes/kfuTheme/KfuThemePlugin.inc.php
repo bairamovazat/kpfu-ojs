@@ -13,7 +13,7 @@
  * @brief "KfuTheme" theme plugin
  */
 
-import('classes.plugins.ThemePlugin');
+import('lib.pkp.classes.plugins.ThemePlugin');
 
 class KfuThemePlugin extends ThemePlugin {
 	/**
