@@ -40,6 +40,11 @@ class KfuThemePlugin extends ThemePlugin {
 	function getLocaleFilename($locale) {
 		return null; // No locale data
 	}
+
+	public function init()
+	{
+		// TODO: Implement init() method.
+	}
 }
 
 ?>
